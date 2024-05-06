@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Proficio</string>
+    <string name="login">Авторизация</string>
+    <string name="email">Электронная почта</string>
+    <string name="password">Пароль</string>
+    <string name="register">Регистрация</string>
+    <string name="click_to_login">Нажмите для авторизации</string>
+    <string name="click_to_register">Нажмите для регистрации</string>
+    <string name="logout">Выйти</string>
+    <string name="current_user">Текущий пользователь</string>
+</resources>
