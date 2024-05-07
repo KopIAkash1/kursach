@@ -10,13 +10,21 @@
     android:orientation="vertical"
     android:background="@drawable/back"
     android:padding="20dp">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/proficio"
+        android:textStyle="bold"
+        android:textSize="24sp"
+        android:textColor="@color/white"
+        android:textAlignment="center"/>
     <LinearLayout
         android:layout_width="match_parent"
         android:gravity="center"
         android:orientation="vertical"
         android:background="#80000000"
         android:layout_marginBottom="60dp"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="20dp"
         android:layout_height="match_parent">
     <TextView
         android:text="@string/login"
@@ -33,6 +41,7 @@
         android:layout_height="wrap_content">
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/email"
+            android:textColor="@color/white"
             android:textColorHint="@color/white"
             android:hint="@string/email"
             android:layout_width="match_parent"
@@ -45,6 +54,7 @@
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/password"
             android:textColorHint="@color/white"
+            android:textColor="@color/white"
             android:hint="@string/password"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
@@ -55,6 +65,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
     <Button
+        android:backgroundTint="@color/black"
         android:id="@+id/loginButton"
         android:text="@string/login"
         android:layout_width="wrap_content"

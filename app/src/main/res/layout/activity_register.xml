@@ -34,6 +34,7 @@
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/email"
             android:textColorHint="@color/white"
+            android:textColor="@color/white"
             android:hint="@string/email"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
@@ -45,6 +46,7 @@
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/password"
             android:textColorHint="@color/white"
+            android:textColor="@color/white"
             android:hint="@string/password"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />

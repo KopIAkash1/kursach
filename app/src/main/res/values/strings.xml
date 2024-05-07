@@ -8,4 +8,10 @@
     <string name="click_to_register">Нажмите для регистрации</string>
     <string name="logout">Выйти</string>
     <string name="current_user">Текущий пользователь</string>
+    <string name="lenta">Лента</string>
+    <string name="profile">👤</string>
+    <string name="exit">↪</string>
+    <string name="proficio">Proficio</string>
+    <string name="text">Skills</string>
+    <string name="header">Header</string>
 </resources>
