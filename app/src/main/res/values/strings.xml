@@ -14,4 +14,6 @@
     <string name="proficio">Proficio</string>
     <string name="text">Skills</string>
     <string name="header">Header</string>
+    <string name="Create">Создать</string>
+    <string name="Back">Отмена</string>
 </resources>
