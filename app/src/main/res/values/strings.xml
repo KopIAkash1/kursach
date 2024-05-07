@@ -12,8 +12,9 @@
     <string name="profile">👤</string>
     <string name="exit">↪</string>
     <string name="proficio">Proficio</string>
-    <string name="text">Skills</string>
-    <string name="header">Header</string>
+    <string name="text">Текст</string>
+    <string name="header">Название</string>
     <string name="Create">Создать</string>
     <string name="Back">Отмена</string>
+    <string name="skills">Навыки</string>
 </resources>

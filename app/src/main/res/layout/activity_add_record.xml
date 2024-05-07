@@ -56,17 +56,19 @@
                 android:id="@+id/skillsRecord"
                 android:textColorHint="@color/white"
                 android:textColor="@color/white"
-                android:hint="@string/text"
+                android:hint="@string/skills"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
         </com.google.android.material.textfield.TextInputLayout>
         <Button
+            android:backgroundTint="@color/black"
             android:id="@+id/addButton"
             android:text="@string/Create"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="30dp"/>
         <Button
+            android:backgroundTint="@color/black"
             android:id="@+id/backButton"
             android:text="@string/Back"
             android:layout_width="match_parent"
