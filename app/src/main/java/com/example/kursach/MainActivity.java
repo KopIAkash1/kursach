@@ -51,10 +51,20 @@ public class MainActivity extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for(DataSnapshot recordSnapshot : snapshot.getChildren()){
                     String re = recordSnapshot.getValue().toString();
+                    Log.wtf(re,re);
                     String[] words = re.split(" ");
-                    String header = words[1].split("=")[1].replace(',',' ');
-                    String text = words[2].split("=")[1].replace('}',' ');
-                    String[] skill = words[0].split("=")[1].replace('[','s').replace(']','e').split(" ");
+                    String header = re.split("header=")[1].split(",")[0];
+                    Log.wtf(header,header);
+                    String text = re.split("text=")[1].split("\\}")[0];
+                    Log.wtf(text,text);
+                    String buff = re.split("skills=")[1];
+                    String[] skill = new String[' '];
+                    try{
+                        skill = buff.split(",");
+                    } catch (Exception e){
+                        skill[0] = buff;
+                    }
+                    Log.wtf(skill[0],skill[0]);
                     ArrayList<String> skillsMass = new ArrayList<>(Arrays.asList(skill));
                     Record record = new Record(header,text,skillsMass);
                     recordList.add(record);
