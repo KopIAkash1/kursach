@@ -52,11 +52,11 @@ public class MainActivity extends AppCompatActivity {
                 for(DataSnapshot recordSnapshot : snapshot.getChildren()){
                     String re = recordSnapshot.getValue().toString();
                     String[] words = re.split(" ");
-                    String header = words[1].split("=")[1];
-                    String text = words[2].split("=")[1];
+                    String header = words[1].split("=")[1].replace(',',' ');
+                    String text = words[2].split("=")[1].replace('}',' ');
+                    Log.wtf(re, text);
                     String[] skill = words[0].split("=")[1].replace('[','s').replace(']','e').split(" ");
                     ArrayList<String> skillsMass = new ArrayList<>(Arrays.asList(skill));
-                    Log.wtf("suka",skillsMass.toString());
                     Record record = new Record(header,text,skillsMass);
                     recordList.add(record);
                 }

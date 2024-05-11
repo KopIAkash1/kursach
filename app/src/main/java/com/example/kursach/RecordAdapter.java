@@ -32,8 +32,8 @@ public class RecordAdapter extends ArrayAdapter<Record> {
 
         Record record = recordList.get(position);
 
-        TextView headerTextView = view.findViewById(R.id.headerTextView);
-        TextView skillsTextView = view.findViewById(R.id.skillsTextView);
+        TextView headerTextView = view.findViewById(R.id.skillsTextView);
+        TextView textView = view.findViewById(R.id.headerTextView);
 
         headerTextView.setText(record.getHeader());
 
@@ -45,7 +45,7 @@ public class RecordAdapter extends ArrayAdapter<Record> {
         if (skillsBuilder.length() > 0) {
             skillsBuilder.delete(skillsBuilder.length() - 2, skillsBuilder.length());
         }
-        skillsTextView.setText(skillsBuilder.toString());
+        textView.setText(record.getText());
 
         return view;
     }
