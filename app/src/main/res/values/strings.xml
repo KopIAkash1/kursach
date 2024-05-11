@@ -17,4 +17,6 @@
     <string name="Create">Создать</string>
     <string name="Back">Отмена</string>
     <string name="skills">Навыки</string>
+    <string name="number_record">Номер записи</string>
+    <string name="Delete">Удалить</string>
 </resources>

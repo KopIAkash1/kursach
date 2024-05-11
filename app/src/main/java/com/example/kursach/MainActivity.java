@@ -54,7 +54,6 @@ public class MainActivity extends AppCompatActivity {
                     String[] words = re.split(" ");
                     String header = words[1].split("=")[1].replace(',',' ');
                     String text = words[2].split("=")[1].replace('}',' ');
-                    Log.wtf(re, text);
                     String[] skill = words[0].split("=")[1].replace('[','s').replace(']','e').split(" ");
                     ArrayList<String> skillsMass = new ArrayList<>(Arrays.asList(skill));
                     Record record = new Record(header,text,skillsMass);
@@ -94,6 +93,14 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), RecordCreater.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+        deleteButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), RecordDelete.class);
                 startActivity(intent);
                 finish();
             }

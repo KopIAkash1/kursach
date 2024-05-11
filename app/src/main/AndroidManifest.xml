@@ -21,6 +21,10 @@
             android:theme="@style/Theme.Material3.Light.NoActionBar"
             android:exported="false" />
         <activity
+            android:name=".RecordDelete"
+            android:theme="@style/Theme.Material3.Light.NoActionBar"
+            android:exported="false" />
+        <activity
             android:name=".Login"
             android:theme="@style/Theme.Material3.Light.NoActionBar"
             android:exported="true">
