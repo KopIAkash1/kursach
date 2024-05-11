@@ -2,6 +2,7 @@ package com.example.kursach;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
@@ -9,6 +10,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
@@ -16,27 +18,56 @@ import androidx.core.view.WindowInsetsCompat;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
     FirebaseAuth auth;
     ListView listView;
     Button logoutButton, profileButton, addButton, deleteButton;
+    DatabaseReference groupRef = FirebaseDatabase.getInstance().getReference("RecordMass").child("Records");
     TextView textView;
     LinearLayout adminTools;
     FirebaseUser user;
-
+    public List<Record> recordList = new ArrayList<>();
+    public void UpdateUI(List<Record> rl){
+        RecordAdapter recordAdapter = new RecordAdapter(getApplicationContext(),rl);
+        listView.setAdapter(recordAdapter);
+    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Record newRecord = new Record("Заголовок", "Текст записи", new ArrayList<String>());
-        Record newRecord2 = new Record("Заголовок2", "Текст записи2", new ArrayList<String>());
-        List<Record> recordList = new ArrayList<Record>();
-        recordList.add(newRecord);
-        recordList.add(newRecord2);
+
+        groupRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                for(DataSnapshot recordSnapshot : snapshot.getChildren()){
+                    String re = recordSnapshot.getValue().toString();
+                    String[] words = re.split(" ");
+                    String header = words[1].split("=")[1];
+                    String text = words[2].split("=")[1];
+                    String[] skill = words[0].split("=")[1].replace('[','s').replace(']','e').split(" ");
+                    ArrayList<String> skillsMass = new ArrayList<>(Arrays.asList(skill));
+                    Log.wtf("suka",skillsMass.toString());
+                    Record record = new Record(header,text,skillsMass);
+                    recordList.add(record);
+                }
+                UpdateUI(recordList);
+            }
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
         listView = findViewById(R.id.listView);
         auth = FirebaseAuth.getInstance();
         logoutButton = findViewById(R.id.logoutButton); // +
@@ -50,8 +81,6 @@ public class MainActivity extends AppCompatActivity {
         if(user.getEmail().equals("rossia1234556@yandex.ru")){
             adminTools.setVisibility(View.VISIBLE);
         }
-        RecordAdapter recordAdapter = new RecordAdapter(this,recordList);
-        listView.setAdapter(recordAdapter);
         logoutButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
